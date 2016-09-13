@@ -63,7 +63,7 @@ public class Server {
 
                 String listJson = new Gson().toJson(Offer.offers.subList(start, end));
 
-                String response = String.format("{offers: %s, size: %s}", listJson, Offer.offers.size());
+                String response = String.format("{\"offers\": %s, \"size\": %s}", listJson, Offer.offers.size());
                 byte[] bytes;
 
                 final Headers headers = t.getResponseHeaders();

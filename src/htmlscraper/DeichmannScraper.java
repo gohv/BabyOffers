@@ -45,7 +45,7 @@ public class DeichmannScraper extends AbstractScraper {
                 //offer.setLinkToItem("http:"+e.findFirst("<a class=\"product-seolink\"").getAt("href"));
                 offer.setLinkToItem("http://www.deichmann.com/BG/bg/shop/home-kinder/home-kinder-namalenia.cat");
                 offer.setProductName(productName + " " +  productBrand);
-                offer.setProductPhoto(e.findEvery("<img>").getElement(1).getAt("src"));
+                offer.setProductPhoto(e.findEvery("<img>").getElement(2).getAt("src"));
                 offer.setOldPrice(getPrice(e.findFirst("<span class=\"line-through\">").innerText()));
                 offer.setNewPrice(getPrice(e.findFirst("<div class=\"fe-first-price PRODUCT_GLOBAL_PRICE\">").innerText()));
                 offer.setShopName("DeichMann");

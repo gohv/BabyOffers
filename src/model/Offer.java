@@ -25,7 +25,7 @@ public class Offer implements Serializable
 
     @Override
     public String toString() {
-        return "Offer{" +
+        return "Offer" + '{' +
                 "oldPrice=" + oldPrice +
                 ", newPrice=" + newPrice +
                 ", shopName='" + shopName + '\'' +
