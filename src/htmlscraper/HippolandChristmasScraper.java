@@ -7,11 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Html downloader
+ * Created by gohv on 25.11.16.
  */
-public class HippolandScraper extends AbstractScraper {
-
-    String baseUrl = "http://www.hippoland.net/akciq-2?p=";
+public class HippolandChristmasScraper extends AbstractScraper {
+    String baseUrl = "http://www.hippoland.net/koleden-katalog?p=";
     public static final int SHOP_IDENTIFIER = 4;
     public List<Offer> scrape()
     {
@@ -78,6 +77,4 @@ public class HippolandScraper extends AbstractScraper {
 
         return null;
     }
-
-
 }

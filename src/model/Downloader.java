@@ -13,8 +13,8 @@ import java.util.List;
  */
 public class Downloader implements Runnable {
 
-    List<AbstractScraper> scrapers = new ArrayList<>();
     private final int INTERVAL = 7200 * 1000;
+    List<AbstractScraper> scrapers = new ArrayList<>();
 
     public void run() {
         // IF LESS THAN CERTAIN AMMOUNT OF OFFERS ARE AVAILABLE - APP CRASHES!!!!!!!!
@@ -24,10 +24,10 @@ public class Downloader implements Runnable {
         scrapers.add(new ComsedScraper());
         scrapers.add(new DeichmannScraper());
         scrapers.add(new HMScraper());
-        scrapers.add(new HippolandScraper());
         scrapers.add(new EmagScraper());
         scrapers.add(new BebelandiaScraper());
-
+        scrapers.add(new HippolandScraper());
+        scrapers.add(new HippolandChristmasScraper());
 
         while (true) {
             System.out.println("Downloader started....");
@@ -53,7 +53,10 @@ public class Downloader implements Runnable {
                 Instant start = Instant.now();
                 List<Offer> tempOffer = a.scrape();
                 Offer.offers.addAll(tempOffer);
-                System.out.println("\tfinished " + a.getClass().getName() + " " + Duration.between(start, Instant.now()).getSeconds() + " seconds " + " Offer size: " + tempOffer.size());
+                System.out.println("\tfinished " +
+                        a.getClass().getName() +
+                        " " + Duration.between(start, Instant.now()).getSeconds() +
+                        " seconds " + " Offer size: " + tempOffer.size());
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }

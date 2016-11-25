@@ -15,7 +15,7 @@ import java.util.List;
 public class HMScraper extends AbstractScraper {
 
     String baseUrl = "http://www2.hm.com/bg_bg/sale/shopbyproductkids/best-of-sale.html";
-
+    public static final int SHOP_IDENTIFIER = 5;
 
     @Override
     public List<Offer> scrape() {
@@ -45,10 +45,14 @@ public class HMScraper extends AbstractScraper {
 
                 offer.setProductName(e.findFirst("<h3>").innerText().trim());
                  offer.setLinkToItem(e.findFirst("<h3 class=\"product-item-headline\">").findFirst("<a>").getAt("href"));
-                offer.setProductPhoto("http://www.southsidewandsworth.com/images/shops/logos/hmkids.png");
+                //offer.setProductPhoto("http://www.southsidewandsworth.com/images/shops/logos/hmkids.png");
+                //offer.setProductPhoto(e.findFirst("<div class=\"product-item-image-wrapper\">").getAt("src"));
+                String img = e.findFirst("<div class=\"product-item-image-wrapper\">").getChildElements().get(0).getAt("src");
+                offer.setProductPhoto(img.replaceAll(" ","%20"));
                 offer.setOldPrice(getPrice(e.findFirst("<div class=\"product-item-price product-item-price-discount\">").findFirst("<small>").innerText()));
                 offer.setNewPrice(getPrice(e.findFirst("<div class=\"product-item-price product-item-price-discount\">").innerText()));
                 offer.setShopName("H&M");
+                offer.setShopIdentifier(SHOP_IDENTIFIER);
                 offers.add(offer);
             }
 

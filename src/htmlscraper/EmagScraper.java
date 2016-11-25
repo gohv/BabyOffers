@@ -12,7 +12,7 @@ import java.util.List;
 public class EmagScraper extends AbstractScraper {
 
         String baseUrl = "http://www.emag.bg/search/igrachki-detski-artikuli/promo/listall/p";
-
+    public static final int SHOP_IDENTIFIER = 3;
     public List<Offer> scrape()
     {
         List<Offer> offers = new ArrayList<>();
@@ -67,6 +67,7 @@ public class EmagScraper extends AbstractScraper {
                 offer.setOldPrice(getPrice(e.findFirst("<span class=\"old initial_price\">").innerText()) / 100);
                 offer.setNewPrice(getPrice(e.findFirst("<span class=\"price-over\">").innerText()) / 100);
                 offer.setShopName("EMAG");
+                offer.setShopIdentifier(SHOP_IDENTIFIER);
                 offers.add(offer);
             }
 

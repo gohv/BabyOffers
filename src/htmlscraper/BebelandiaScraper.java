@@ -15,6 +15,7 @@ import java.util.List;
 public class BebelandiaScraper extends AbstractScraper {
 
     String baseUrl = "http://www.bebelandia.bg/best-prices.html";
+    public static final int SHOP_IDENTIFIER = 0;
 
 
 
@@ -55,7 +56,7 @@ public class BebelandiaScraper extends AbstractScraper {
 
 
                     offer.setShopName("Bebelandia");
-
+                    offer.setShopIdentifier(SHOP_IDENTIFIER);
                     offers.add(offer);
             }
 

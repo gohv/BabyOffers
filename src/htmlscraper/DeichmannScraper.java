@@ -16,6 +16,7 @@ public class DeichmannScraper extends AbstractScraper {
 
     String baseUrl = "http://www.deichmann.com/BG/bg/shop/home-kinder/home-kinder-namalenia.cat";
     private String stringContainer = "<section id=\"product-list\">";
+    public static final int SHOP_IDENTIFIER = 2;
 
     @Override
     public List<Offer> scrape() {
@@ -49,6 +50,7 @@ public class DeichmannScraper extends AbstractScraper {
                 offer.setOldPrice(getPrice(e.findFirst("<span class=\"line-through\">").innerText()));
                 offer.setNewPrice(getPrice(e.findFirst("<div class=\"fe-first-price PRODUCT_GLOBAL_PRICE\">").innerText()));
                 offer.setShopName("DeichMann");
+                offer.setShopIdentifier(SHOP_IDENTIFIER);
                 offers.add(offer);
             }
 

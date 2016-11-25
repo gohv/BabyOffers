@@ -23,6 +23,9 @@ public abstract class AbstractScraper {
                 return Double.parseDouble(matcher.group());
             }
 
+        }catch (NumberFormatException e){
+            System.out.println("Cannot Set the price!!!");
+            System.out.print(" !!Abstract Scraper!!!\n");
         }catch (Exception e){
             e.printStackTrace();
         }

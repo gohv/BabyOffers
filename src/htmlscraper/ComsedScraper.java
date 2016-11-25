@@ -15,7 +15,7 @@ import java.util.List;
 public class ComsedScraper extends AbstractScraper {
 
     String baseUrl = "http://comsed.net/%D0%B2%D1%81%D0%B8%D1%87%D0%BA%D0%B8?filter_promo_id=0";
-
+    public static final int SHOP_IDENTIFIER = 1;
 
 
     public List<Offer> scrape() {return scrapePage(baseUrl);}
@@ -38,11 +38,12 @@ public class ComsedScraper extends AbstractScraper {
                     Offer offer = new Offer();
 
                     offer.setLinkToItem(e.findFirst("<a class=\"thumbnail\">").getAt("href"));
-                    offer.setProductName(e.findFirst("<h1>").innerText().trim());
+                    offer.setProductName(e.findFirst("<h2 class=\"product-title\">").innerText().trim());
                     offer.setProductPhoto(e.findFirst("<img>").getAt("src"));
                     offer.setOldPrice(getPrice(e.findFirst("<strike>").innerText()));
                     offer.setNewPrice(getPrice(e.findFirst("<strike>").nextSiblingElement().innerText()));
                     offer.setShopName("Comsed");
+                    offer.setShopIdentifier(SHOP_IDENTIFIER);
                     offers.add(offer);
             }
 

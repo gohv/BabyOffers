@@ -22,10 +22,12 @@ public class Offer implements Serializable
     private String brand;
     private String linkToItem;
     private static int counter;
+    private int shopIdentifier;
+
 
     @Override
     public String toString() {
-        return "Offer" + '{' +
+        return "Offer{" +
                 "oldPrice=" + oldPrice +
                 ", newPrice=" + newPrice +
                 ", shopName='" + shopName + '\'' +
@@ -34,6 +36,7 @@ public class Offer implements Serializable
                 ", category='" + category + '\'' +
                 ", brand='" + brand + '\'' +
                 ", linkToItem='" + linkToItem + '\'' +
+                ", shopIdentifier=" + shopIdentifier +
                 '}';
     }
 
@@ -147,7 +150,16 @@ public class Offer implements Serializable
         return tempOffers;
     }
 
+    public int getShopIdentifier() {
+        return shopIdentifier;
+    }
+
+    public void setShopIdentifier(int shopIdentifier) {
+        this.shopIdentifier = shopIdentifier;
+    }
+
     public Offer(){
+
 
     }
 

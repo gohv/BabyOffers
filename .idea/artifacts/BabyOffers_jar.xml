@@ -3,8 +3,8 @@
     <output-path>$USER_HOME$/Desktop</output-path>
     <root id="archive" name="BabyOffers.jar">
       <element id="module-output" name="BabyOffers" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/out/jar/jaunt1.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/out/jar/gson-2.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/jar/jaunt1.2.2.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
